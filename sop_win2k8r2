@@ -1,0 +1,237 @@
+First 5 Minutes:
+
+Change Passwords
+Change Administrator Name
+Disable user accounts
+
+Updates
+
+Firewall
+
+Anti-Virus
+
+Delete Hidden Shares
+
+Clear Scheduled Tasks
+
+Check hosts file
+
+MS Baseline Security Analyzer
+
+
+
+
+Encrypt 
+IPSec
+SSL/TLS
+	(others)
+
+
+
+Windows XP
+
+
+Windows 2003
+
+http://support.microsoft.com/kb/816792/en-US
+
+
+
+Windows Vista
+
+
+Server 2008
+
+
+
+
+Windows 7
+
+
+Server 2008 R2
+
+
+
+
+Windows 8
+
+
+Server 2012
+
+
+
+
+Windows 8.1
+
+
+Server 2012 R2
+
+
+
+
+
+
+
+Services:
+
+Active Directory
+	cmd “dcpromo” = promote / demote DC
+
+DHCP
+
+DNS
+
+IIS
+
+FTP
+
+Email
+
+DFS
+
+
+
+
+
+
+Programs:
+PuTTY
+NMAP
+MS Security Essentials
+Filezilla
+WireShark
+Chrome
+Firefox
+Cygwin
+CCleaner
+MS Baseline Security Analyzer
+Kaspersky Security Scan
+
+http://usa.kaspersky.com/downloads/free-anti-virus-scan
+
+
+Web Add-Ons:
+HTTPS Everywhere
+Ad-Blocker
+Privacy Badger
+NoScript
+
+
+
+CMD Commands
+NET share
+netstat
+ping
+nslookup
+tracert
+telnet
+taskkill
+
+
+
+http://www.makeuseof.com/tag/15-cmd-commands-every-windows-user-know/
+
+
+
+
+
+
+
+
+Injects:
+
+NTP
+	Set up Time Server
+		Demonstrate with Screenshots
+
+Logging Server
+
+Network Scanner (NMap)
+	OS
+	Services and Versions
+		?FTP Bounce?
+		?Anonymous FTP?
+
+Inventory
+	ID all account
+	All Services
+	Topology Diagrams
+	NEED:
+		System Name
+		Platform (Windows, Linux, Solaris, etc)
+		List of Accounts
+		List of Services
+		List of Open Ports
+
+Web Site Integrity
+	Monitor web page
+		Develop method
+
+OpenVAS
+	Scan with OpenVAS
+	Screenshots
+	Decument
+
+DNS Security
+	version of BIND
+
+QoS
+	On PFSense, QoS ecommerce traffic
+		DSCP
+		or IP Precedent
+	Verify with Wireshark
+
+DNS Poisoning
+	Verify DNS config
+	?are we vulnerable?
+
+PFSense
+	Document Policy changes
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Cisco:
+
+
+
+
+
+PFSense:
+
+
+
+
+
+Check Point:
+
+
+
+
+
+
+Learning:
+http://www.cultdeadcow.com/tools/rpcdump.html
