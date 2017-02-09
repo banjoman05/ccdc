@@ -6,5 +6,5 @@ echo "deb http://archive.debian.org/debian-archive/debian/ lenny main contrib no
 echo "deb http://archive.debian.org/debian-security/ lenny/updates main contrib non-free" >> /etc/apt/sources.list
 
 apt-get update
-apt-get install -y vim htop sudo fail2ban ufw unzip screen
+apt-get install -y --force-yes vim htop sudo fail2ban unzip screen
 
