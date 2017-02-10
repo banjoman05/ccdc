@@ -8,20 +8,20 @@ echo "deb http://archive.debian.org/debian-security/ lenny/updates main contrib 
 apt-get update
 apt-get install -y --force-yes vim htop sudo fail2ban unzip screen
 
-iptables -P INPUT DROP
-iptables -P FORWARD DROP
-iptables -P OUTPUT ACCEPT
-iptables -A INPUT -m conntrack --ctstate RELATED,ESTABLISHED -j ACCEPT
-iptables -A INPUT -i lo -j ACCEPT
-iptables -A INPUT -m conntrack --ctstate INVALID -j DROP
-iptables -A INPUT -p icmp --icmp-type 8 -m conntrack --ctstate NEW -j ACCEPT
-iptables -A INPUT -p udp -m conntrack --ctstate NEW -j UDP
-iptables -A INPUT -p tcp --syn -m conntrack --ctstate NEW -j TCP
-iptables -A INPUT -p udp -j REJECT --reject-with icmp-port-unreachable
-iptables -A INPUT -p tcp -j REJECT --reject-with tcp-reset
-iptables -A INPUT -j REJECT --reject-with icmp-proto-unreachable
-#iptables -A TCP -p tcp --dport 22 -j ACCEPT
-iptables -A TCP -p tcp --dport 25 -j ACCEPT
-iptables -A TCP -p tcp --dport 80 -j ACCEPT
-iptables -A TCP -p tcp --dport 443 -j ACCEPT
+/sbin/iptables -P INPUT DROP
+/sbin/iptables -P FORWARD DROP
+/sbin/iptables -P OUTPUT ACCEPT
+/sbin/iptables -A INPUT -m conntrack --ctstate RELATED,ESTABLISHED -j ACCEPT
+/sbin/iptables -A INPUT -i lo -j ACCEPT
+/sbin/iptables -A INPUT -m conntrack --ctstate INVALID -j DROP
+/sbin/iptables -A INPUT -p icmp --icmp-type 8 -m conntrack --ctstate NEW -j ACCEPT
+/sbin/iptables -A INPUT -p udp -m conntrack --ctstate NEW -j UDP
+/sbin/iptables -A INPUT -p tcp --syn -m conntrack --ctstate NEW -j TCP
+/sbin/iptables -A INPUT -p udp -j REJECT --reject-with icmp-port-unreachable
+/sbin/iptables -A INPUT -p tcp -j REJECT --reject-with tcp-reset
+/sbin/iptables -A INPUT -j REJECT --reject-with icmp-proto-unreachable
+#/sbin/iptables -A TCP -p tcp --dport 22 -j ACCEPT
+/sbin/iptables -A TCP -p tcp --dport 25 -j ACCEPT
+/sbin/iptables -A TCP -p tcp --dport 80 -j ACCEPT
+/sbin/iptables -A TCP -p tcp --dport 443 -j ACCEPT
 
