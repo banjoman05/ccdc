@@ -1,0 +1,96 @@
+# SAMBA SERVER
+
+apt-get install samba samba-common samba-common-bin
+
+smbpasswd -a frank
+
+vi /etc/samba/smb.conf
+[SHARENAME]
+path = /mount
+read only = No
+browsable = yes
+writeable = yes
+valid users = frank
+
+service samba restart
+service smbd restart	# renamed in Ubuntu at some point
+
+
+# SAMBA CLIENT
+
+# Mount manually
+mount -t cifs -o username=frank -o gid=1000 -o uid=1000 //1.2.3.4/mount /mount
+
+# Mount automatically
+vi /etc/fstab
+//1.2.3.4/mount cifs credentials=[password file],iocharset=utf8,file_mode=0777,dir_mode=0777 0 0
+
+vi /root/.smbpass
+username=frank
+password=meh
+
+# Bash script to mount/umount
+
+#!/bin/bash
+
+share=""
+share1="share1"
+share2="share2"
+server="1.2.3.4"
+username="frank"
+uid="1000"
+gid="1000"
+credentials="/root/.smbpasswd"
+
+if [ "$1" == "share1" ]
+then
+	share="share1"
+	sudo mount -t cifs -o username=$username -o credentials=$credentials -o gid=$gid -o uid=$uid //"$server"/"$share" /"$share"
+        echo ""
+	echo "################"
+	echo "#$share mounted"
+	echo "################"
+        echo ""
+exit 0
+
+elif [ "$1" == "share2" ]
+then
+	share="share2"
+	sudo mount -t cifs -o username=$username -o credentials=$credentials -o gid=$gid -o uid=$uid //"$server"/"$share" /"$share"
+        echo ""
+        echo "################"
+        echo "#$share mounted"
+        echo "################"
+        echo ""
+exit 0
+
+elif [ "$1" == "-u" ]
+then
+	sudo umount /share1
+	sudo umount /share2
+        echo ""
+	echo "Shares unmounted"
+        echo ""
+exit 0
+
+elif [ "$1" == "-a" ]
+then
+	sudo mount -t cifs -o username=$username -o credentials=$credentials -o gid=$gid -o uid=$uid //"$server"/"$share1" /"$share1"
+	sudo mount -t cifs -o username=$username -o credentials=$credentials -o gid=$gid -o uid=$uid //"$server"/"$share2" /"$share2"
+        echo ""
+	echo "################"
+        echo "#$share1 mounted"
+        echo "#$share2 mounted"
+        echo "################"
+	echo ""
+exit 0
+
+else
+	echo ""
+	echo "Something went wrong. Try: share1, share2, -u, or -a"
+	echo ""
+exit 0
+
+fi
+
+
