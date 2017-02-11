@@ -1,0 +1,26 @@
+# Change passwords - administrator/root
+passwd administrator
+passwd root
+
+# Script to do stuff
+wget --https://raw.githubusercontent.com/banjoman05/ccdc/master/ubuntu_stuff.sh --no-check-certificate
+
+# Install Stuff: Server
+apt-get install vim htop sudo fail2ban ufw unzip screen
+
+# Configure firewall https://wiki.debian.org/Uncomplicated%20Firewall%20(ufw)
+ufw default deny incoming
+ufw default allow outgoing
+ufw status verbose
+ufw allow ssh
+ufw allow 1000:2000/tcp
+ufw allow 1000:2000/udp
+ufw allow from 111.222.333.444
+ufw delete allow ssh
+
+ufw enable
+
+
+
+
+
