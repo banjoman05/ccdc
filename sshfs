@@ -1,0 +1,12 @@
+# More: https://wiki.archlinux.org/index.php/SSHFS
+
+# SSHFS in fstab
+user@1.2.3.4:/remotedir /mountpoint  fuse.sshfs noauto,x-systemd.automount,_netdev,users,idmap=user,IdentityFile=/home/user/.ssh/SSHKEY,allow_other,reconnect,uid=1000,gid=1000 0 0
+
+
+# script
+#!/bin/bash
+
+sshfs user@1.2.3.4:/remotedir /mountpoint -o IdentityFile=/home/user/.ssh/SSHKEY -o uid=1000 -o gid=1000 -o Ciphers=arcfour -o Compression=no -o reconnect
+
+
