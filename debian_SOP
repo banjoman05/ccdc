@@ -1,0 +1,21 @@
+# Change passwords - administrator/root
+passwd administrator
+passwd root
+
+# Script to do stuff
+wget --https://raw.githubusercontent.com/banjoman05/ccdc/master/deb_stuff.sh --no-check-certificate
+
+
+# enable archived repos
+https://wiki.debian.org/DebianLenny
+
+vi /etc/apt/sources.list
+
+deb http://archive.debian.org/debian-archive/debian/ lenny main contrib non-free
+deb http://archive.debian.org/debian-security/ lenny/updates main contrib non-free
+
+# Change DB password
+
+vim /var/www/config/db.inc.php
+$rcmail_config[‘db_dsnw’] = ‘mysql://root:changeme@172.20.240.23/roundcube’;
+
